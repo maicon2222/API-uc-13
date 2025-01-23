@@ -4,6 +4,8 @@ import carros2025 from "./tabelaCarros.js";
 //importa o modulo express
 import express from "express";
 
+import { modeloCarro } from "./validacao.js";
+
 //criando a variavel app do tipo express
 const app = express();
 
@@ -24,6 +26,19 @@ app.get("/:sigla", (req, res) => {
     return;
   }
   res.status(200).send(carro);
+});
+
+app.post('/', (req, res) => {
+  const novoCarro = req.body; // obtem o novo carro  e status 200
+  const { error} = modeloCarro.validate(novoCarro); //valida os dados do novo carro.
+  if (error) {
+    // se houver erro de validação, retorna erro 400
+    res.status(400).send(error);
+    return;
+
+  }
+  carros2025.push(novoCarro); // Adiciona o carro a lista de carros 
+  res.status(200).send(novoCarro); // retorna o carro adicionado
 });
 
 // defina a porta do servidor
