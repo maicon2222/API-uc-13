@@ -40,11 +40,25 @@ app.post("/", (req, res) => {
   res.status(200).send(novoCarro); // Retorna o carro adiciona com status 200
 });
 
+app.post('/', (req, res) => {
+  const novoCarro = req.body;
+  const carroExiste = carros2025.find(carro => carro.sigla === novoCarro. sigla);
+  if (carroExiste) {
+    return res.status(400).send("Ja existe um carro cadastrado com essa sigla ");
+  }
+  const { error } = modeloCarro.valited(novoCarro);
+  if (error) {
+    res.status(400).send(error);
+    return;
+  }
+  carros2025.push(novoCarro);
+  res.status(201).send(novoCarro);
+})
 app.put("/:sigla", (req, res) => {
   const siglaInformada = req.params.sigla.toUpperCase();
   const carroSelecionado = carros2025.find((c) => c.sigla === siglaInformada);
   if (!carroSelecionado) {
-    // Se o carro não for encontrado retorna erro 404
+    // Se o carro não for encontrado retorna erro 404 e o  201 corigido
     res.status(404).send("Não existe um carro com a sigla informada");
     return;
   };
