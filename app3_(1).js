@@ -53,7 +53,7 @@ app.post('/', (req, res) => {
   }
   carros2025.push(novoCarro);
   res.status(201).send(novoCarro);
-})
+});
 app.put("/:sigla", (req, res) => {
   const siglaInformada = req.params.sigla.toUpperCase();
   const carroSelecionado = carros2025.find((c) => c.sigla === siglaInformada);
