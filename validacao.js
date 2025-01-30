@@ -42,4 +42,4 @@ export const modeloAtualizacaoCarro = Joi.object({
   consumo: Joi.number().min(0.1).messages({
     'number.min': 'O consumo deve ser maior ou igual a 1.',
   }), // Ano de fabricação
-}).min(1);
+}).min(1); // pelo menos um campo precisa ser atualizado
