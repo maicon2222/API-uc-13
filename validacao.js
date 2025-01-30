@@ -1,5 +1,5 @@
 import Joi from "joi";
-
+ 
 // Validação para o modelo de carro
 export const modeloCarro = Joi.object({
   nome: Joi.string().min(3).required().mensages({
@@ -23,7 +23,7 @@ export const modeloCarro = Joi.object({
     "any.required": "O consumo é obrigatorio"
   }) // Ano de fabricação
 });
-
+ 
 // Validação para atualização de carro
 export const modeloAtualizacaoCarro = Joi.object({
   nome: Joi.string().min(3), // nome do carro, pelo menos 3 caracteres

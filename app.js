@@ -33,7 +33,11 @@ app.post('/', (req, res) => {
   const { error} = modeloCarro.validate(novoCarro); //valida os dados do novo carro.
   if (error) {
     // se houver erro de validação, retorna erro 400
+<<<<<<< HEAD
     res.status(201).send(error);
+=======
+    res.status(400).send(error);
+>>>>>>> d34ca1862c9d971f4e7c0ed86a67333cc15cf062
     return;
 
   }
