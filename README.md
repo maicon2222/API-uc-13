@@ -46,7 +46,7 @@ Retorna a lista completa de carros disponíveis
   {
     "nome": "lamburguini",
     "sigla": "LAN",
-    "velocidademaxima": "335",
+    "velocidademaxima": "335", 
     "potencia": "770",
     "consumo": "6.2",
   },
